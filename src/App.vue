@@ -34,6 +34,11 @@ export default {
           title: "介绍",
           path: "/about",
         },
+        {
+          key: "simple-ui",
+          title: "子应用",
+          path: "/vue/list",
+        },
       ],
     };
   },
