@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="appContainer">
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <nav>
@@ -9,9 +9,9 @@
         </li>
       </ul>
     </nav>
-    <section id="frame">
-      <router-view v-show="$route.name"></router-view>
-      <router-view v-show="!$route.name" id="iframe"></router-view>
+    <section>
+      <router-view></router-view>
+      <div id="frame"></div>
     </section>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
         {
           key: "simple-ui",
           title: "子应用",
-          path: "/vue/list",
+          path: "/simple-ui",
         },
       ],
     };
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style>
-#app {
+#appContainer {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

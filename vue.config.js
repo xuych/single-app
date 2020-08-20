@@ -6,6 +6,10 @@ const resolve = (dir) => {
 module.exports = {
   // publicPath: BASE_URL,
   // lintOnSave: true,
+  configureWebpack: {
+    devtool: 'source-map'
+  },
+  transpileDependencies: ["single-spa", "qiankun", "import-html-entry"],
   chainWebpack: (config) => {
     config.plugins.delete("prefetch");
     config.resolve.alias.set("@", resolve("src")); // key,value自行定义，比如.set('@@', resolve('src/components'))

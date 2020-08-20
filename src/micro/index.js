@@ -15,12 +15,10 @@ registerMicroApps(apps, {
   // qiankun 生命周期钩子 - 微应用加载前
   beforeLoad: (app) => {
     // 微应用加载前
-    console.log("start", app.name);
     return Promise.resolve();
   },
   // qiankun生命钩子 - 微应用挂载后
   afterMount: (app) => {
-    console.log("afterMount", app.name);
     return Promise.resolve();
   },
 });
@@ -28,7 +26,6 @@ registerMicroApps(apps, {
  * 添加全局的未捕获异常处理器
  */
 addGlobalUncaughtErrorHandler((event) => {
-  console.log(event);
   const { msg } = event;
   if (msg && msg.includes("died in status LOADING_SOURCE_CODE")) {
     console.log("微应用加载失败，请检查应用是否可运行");
