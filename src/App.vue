@@ -37,7 +37,7 @@ export default {
         {
           key: "simple-ui",
           title: "子应用",
-          path: "/simple-ui",
+          path: "/simple-ui/",
         },
       ],
     };

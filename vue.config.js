@@ -1,13 +1,13 @@
 const path = require("path");
-
 const resolve = (dir) => {
   return path.join(__dirname, dir);
 };
+console.log(process.env.BASE_URL);
 module.exports = {
-  // publicPath: BASE_URL,
+  publicPath: process.env.BASE_URL,
   // lintOnSave: true,
   configureWebpack: {
-    devtool: 'source-map'
+    devtool: "source-map",
   },
   transpileDependencies: ["single-spa", "qiankun", "import-html-entry"],
   chainWebpack: (config) => {
