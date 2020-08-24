@@ -17,67 +17,67 @@
 </template>
 
 <script>
-export default {
-  name: "App",
-  data() {
-    return {
-      menus: [
-        {
-          key: "Home",
-          title: "主页",
-          path: "/",
-        },
-        {
-          key: "Adout",
-          title: "介绍",
-          path: "/about",
-        },
-        {
-          key: "simple-ui",
-          title: "子应用",
-          path: "/simple-ui/",
-        },
-      ],
-    };
-  },
-  created() {
-    console.log(this);
-  },
-  computed: {
-    commonData() {
-      return this.$store.state.commonData || "undefined";
-    },
-  },
-  methods: {
-    pageTo(e) {
-      if (this.$route.path === e) {
-        return;
+  export default {
+    name: 'App',
+    data() {
+      return {
+        menus: [
+          {
+            key: 'Home',
+            title: '主页',
+            path: '/',
+          },
+          {
+            key: 'Adout',
+            title: '介绍',
+            path: '/about',
+          },
+          {
+            key: 'simple-ui',
+            title: '子应用',
+            path: '/simple-ui/',
+          },
+        ],
       }
-      this.$router.push(e);
     },
-    changePState() {
-      this.$store.commit("setCommonData", { parent: 1 });
+    created() {
+      console.log(this)
     },
-  },
-};
+    computed: {
+      commonData() {
+        return this.$store.state.commonData || 'undefined'
+      },
+    },
+    methods: {
+      pageTo(e) {
+        if (this.$route.path === e) {
+          return
+        }
+        this.$router.push(e)
+      },
+      changePState() {
+        this.$store.commit('setCommonData', { parent: 1 })
+      },
+    },
+  }
 </script>
 
 <style>
-#appContainer {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
-nav {
-  width: 150px;
-}
-section {
-  flex: 1;
-}
+  #appContainer {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  nav {
+    width: 150px;
+  }
+  section {
+    flex: 1;
+  }
 </style>
