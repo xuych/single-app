@@ -9,6 +9,7 @@ import "core-js/web/url";
 Vue.config.productionTip = false;
 
 import router from "./routes";
+import store from "./store";
 Vue.use(VueRouter);
 /**
  * 注册路由实例
@@ -16,6 +17,7 @@ Vue.use(VueRouter);
  */
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount("#appContainer");
 
@@ -25,7 +27,7 @@ registerMicroApps([
     entry: "http://localhost:3333",
     container: "#frame",
     activeRule: "/simple-ui",
-    props: { data: { router } },
+    props: { data: { router, store } },
   },
 ]);
 

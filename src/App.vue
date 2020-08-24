@@ -1,8 +1,8 @@
 <template>
   <div id="appContainer">
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <nav>
+      <p>{{ commonData.parent }}</p>
+      <button @click="changePState">改状态</button>
       <ul>
         <li v-for="(e, i) in menus" :key="'e' + i" @click="pageTo(e.path)">
           {{ e.title }}
@@ -17,8 +17,6 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: "App",
   data() {
@@ -42,6 +40,14 @@ export default {
       ],
     };
   },
+  created() {
+    console.log(this);
+  },
+  computed: {
+    commonData() {
+      return this.$store.state.commonData || "undefined";
+    },
+  },
   methods: {
     pageTo(e) {
       if (this.$route.path === e) {
@@ -49,10 +55,10 @@ export default {
       }
       this.$router.push(e);
     },
+    changePState() {
+      this.$store.commit("setCommonData", { parent: 1 });
+    },
   },
-  // components: {
-  // HelloWorld
-  // },
 };
 </script>
 
